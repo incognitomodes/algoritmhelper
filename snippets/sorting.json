@@ -1,0 +1,89 @@
+{
+	"Bubble sort": {
+		"scope": "javascript,typescript",
+		"prefix": "bubbleSort",
+		"body": [
+			"function bubbleSort(arr) {",
+			"\tfor (let i = 0; i < arr.length; i++) {",
+			"\t\tfor (let j = 0; j < arr.length - i - 1; j++) {",
+			"\t\t\tif (arr[j] > arr[j + 1]) {",
+			"\t\t\t\tlet temp = arr[j];",
+			"\t\t\t\tarr[j] = arr[j + 1];",
+			"\t\t\t\tarr[j + 1] = temp;",
+			"\t\t\t}",
+			"\t\t}",
+			"\t}",
+			"}"
+		],
+		"description": "Bubble sort"
+	},
+	"Insertrion sort": {
+		"scope": "javascript,typescript",
+		"prefix": "insertionSort",
+		"body": [
+			"function insertionSort(arr) {",
+			"\tfor (let i = 1; i < arr.length; i++) {",
+			"\t\tlet temp = arr[i];",
+			"\t\tlet j = i - 1;",
+			"\t\twhile (j >= 0 && arr[j] > temp) {",
+			"\t\t\tarr[j + 1] = arr[j];",
+			"\t\t\tj--;",
+			"\t\t}",
+			"\t\tarr[j + 1] = temp;",
+			"\t}",
+			"}"
+		],
+		"description": "Insertion sort"
+	},
+
+	"Quick sort": {
+		"scope": "javascript,typescript",
+		"prefix": "quickSort",
+		"body": [
+			"function quickSort(arr) {",
+			"\t// if array is less that 1 length, then it is sorted and return",
+			"\tif (arr.length <= 1) {",
+			"\t\treturn arr;",
+			"\t}",
+			"\t// get the pivot",
+			"\tlet pivot = arr[0];",
+			"\t// create two arrays, one for left and one for right",
+			"\tlet left = [];",
+			"\tlet right = [];",
+			"\t// loop through the array and compare each element to the pivot",
+			"\tfor (let i = 1; i < arr.length; i++) {",
+			"\t\tif (arr[i] < pivot) {",
+			"\t\t\tleft.push(arr[i]);",
+			"\t\t} else {",
+			"\t\t\tright.push(arr[i]);",
+			"\t\t}",
+			"\t}",
+			"\t// recursively call the function on the left and right arrays",
+			"\treturn quickSort(left).concat(pivot, quickSort(right));",
+			"}"
+		],
+		"description": "Quick sort"
+	},
+	"Selection sort": {
+		"scope": "javascript,typescript",
+		"prefix": "selectionSort",
+		"body": [
+			"function selectionSort(arr) {",
+			"\tfor (let i = 0; i < arr.length; i++) {",
+			"\t\tlet min = i;",
+			"\t\tfor (let j = i + 1; j < arr.length; j++) {",
+			"\t\t\tif (arr[j] < arr[min]) {",
+			"\t\t\t\tmin = j;",
+			"\t\t\t}",
+			"\t\t}",
+			"\t\tif (min != i) {",
+			"\t\t\tlet temp = arr[i];",
+			"\t\t\tarr[i] = arr[min];",
+			"\t\t\tarr[min] = temp;",
+			"\t\t}",
+			"\t}",
+			"}"
+		],
+		"description": "Selection sort"
+	}
+}
