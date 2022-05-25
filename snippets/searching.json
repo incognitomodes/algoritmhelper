@@ -1,0 +1,63 @@
+{
+    "Binary search": {
+		"scope": "javascript,typescript",
+		"prefix": "binarySearch",
+		"body": [
+            "// array must be sorted",
+            "function binarySearch(arr, target) {",
+            "\t// find the midpoint of the array",
+            "\tlet midpoint = Math.floor(arr.length / 2);",
+            "\t// if the midpoint is the target, return the index",
+            "\tif (arr[midpoint] === target) {",
+            "\t\treturn midpoint;",
+            "\t}",
+            "\t// if the midpoint is greater than the target, search the left half",
+            "\tif (arr[midpoint] > target) {",
+            "\t\treturn binarySearch(arr.slice(0, midpoint), target);",
+            "\t}",
+            "\t// if the midpoint is less than the target, search the right half",
+            "\tif (arr[midpoint] < target) {",
+            "\t\treturn binarySearch(arr.slice(midpoint + 1), target);",
+            "\t}",
+            "}"
+		],
+		"description": "Binary search"
+	},
+    "Interpolation search": {
+        "scope": "javascript,typescript",
+        "prefix": "interpolationSearch",
+        "body": [
+            "// array must be sorted",
+            "function interpritationSearch(arr, target) {",
+            "\t// index of the leftmost element",
+            "\tlet idxStart = 0;",
+            "\t// index of the rightmost element",
+            "\tlet idxEnd = arr.length - 1;",
+            "",
+            "\t// helper variable to keep track of the middle index",
+            "\tlet idxMiddle;",
+            "",
+            "\twhile (arr[idxStart] <= target && target <= arr[idxEnd]) {",
+            "\t\t// find the middle index (interpolation search)",
+            "\t\tidxMiddle = idxStart + (idxEnd - idxStart) * (target - arr[idxStart]) / (arr[idxEnd] - arr[idxStart]);",
+            "",
+            "\t\t// if the middle index is the target, return the index",
+            "\t\tif (arr[idxMiddle] === target) {",
+            "\t\t\treturn idxMiddle;",
+            "\t\t}",
+            "",
+            "\t\tif (target < arr[idxMiddle]) {",
+            "\t\t\t// if the target is less than the middle index, search the left half",
+            "\t\t\tidxEnd = idxMiddle - 1;",
+            "\t\t} else {",
+            "\t\t\t// if the target is greater than the middle index, search the right half",
+            "\t\t\tidxStart = idxMiddle + 1;",
+            "\t\t}",
+            "\t}",
+            "\t// target not found, return -1",
+            "\treturn -1;",
+            "}"            
+        ],
+        "description": "Interpolation search"
+    }
+}

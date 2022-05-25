@@ -1,8 +1,10 @@
 {
 	"name": "algoritmhelper",
 	"displayName": "AlgoritmHelper",
+	"publisher": "Incognitomodes",
 	"description": "Help with algorithms",
-	"version": "0.0.1",
+	"icon": "images/icon.png",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
@@ -22,8 +24,20 @@
 		],
 		"snippets": [
 			{
-				"language": "javascript",
+				"language": "typescript",
 				"path": "snippets/sorting.json"
+			},
+			{
+				"language": "typescript",
+				"path": "snippets/searching.json"
+			},
+			{
+				"language": "javascript",
+				"path": "snippets/node.json"
+			},
+			{
+				"language": "typescript",
+				"path": "snippets/angular.json"
 			}
 		]
 	},

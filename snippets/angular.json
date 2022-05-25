@@ -1,0 +1,12 @@
+{
+    "Fetch JSON response": {
+		"scope": "javascript,typescript",
+		"prefix": "fetchJson",
+		"body": [
+            "fetch(`http://localhost:8080/?param1=value&param2=${this.param2}`).then(res => res.json()).then(json => this.result = json);",
+            "// get data from parsed JSON",
+            "this.result.name;"
+		],
+		"description": "Fetch JSON response in Typescript"
+	}
+}

@@ -1,0 +1,81 @@
+{
+    "Node HTTP server": {
+        "scope": "javascript,typescript",
+		"prefix": "nodeBasic",
+        "description": "Node HTTP server",
+        "body": [
+            "// import http module",
+            "var http = require('http');",
+            "http.createServer(function (req, res) {",
+            "\tres.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});",
+            "\tres.end('Hello World');",
+            "}).listen(8080);",
+            "console.log('Server running at http://localhost:8080/');"
+        ]
+    },
+    "Node serach for GET params": {
+        "scope": "javascript,typescript",
+        "prefix": "nodeGetParams",
+        "description": "Node serach for GET params",
+        "body": [
+            "// search for GET parameters passed in URL",
+            "var url = new URL('http://localhost:8080' + req.url);",
+            "// param is returned as a string",
+            "var paramName = url.searchParams.get('name');"
+        ]
+    },
+    "Node send JSON response": {
+        "scope": "javascript,typescript",
+        "prefix": "nodeSendJson",
+        "description": "Node send JSON response",
+        "body": [
+            "// send JSON response",
+            "res.end(JSON.stringify({'message': 'Hello World'}));"
+        ]
+    },
+    "Node connect to SQL database": {
+        "scope": "javascript,typescript",
+        "prefix": "nodeSql",
+        "description": "Node connect to SQL database",
+        "body": [
+            "// import http and sql modules",
+            "var http = require('http');",
+            "var mysql = require('mysql');",
+            "",
+            "// create server",
+            "http.createServer((req, res) => {",
+            "\tres.writeHead(200, { 'Content-Type': 'text/html', 'Access-Control-Allow-Origin': '*' });",
+            "",
+            "\t// create connection to database",
+            "\tlet conn = mysql.createConnection({",
+            "\t\thost: \"localhost\",",
+            "\t\tuser: \"root\",",
+            "\t\tpassword: \"\",",
+            "\t\tdatabase: \"test\"",
+            "\t});",
+            "",
+            "\t// get data from url",
+            "\tlet url = new URL(\"http://localhost:8080\" + req.url);",
+            "\tlet data = JSON.parse(url.searchParams.get(\"data\"));",
+            "\tconsole.log(data);",
+            "",
+            "\t// connect to database",
+            "\tconn.connect((err) => {",
+            "\t\t// if error, throw error",
+            "\t\tif (err) throw err;",
+            "",
+            "\t\t// INSERT INTO `animals`(`id`, `name`, `type`, `birth_date`, `weight`, `email`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6])",
+            "\t\tlet sql = `INSERT INTO animals(name, type, birth_date, weight, email) VALUES ('${data.name}', '${data.type}', '${data.birth_date}', '${data.weight}', '${data.email}')`;",
+            "\t\t",
+            "\t\t// execute query",
+            "\t\tconn.query(sql, (error, data) => {",
+            "\t\t\t// if error, throw error",
+            "\t\t\tif (error) throw err;",
+            "\t\t\t// send response",
+            "\t\t\tres.end();",
+            "\t\t});",
+            "\t});",
+            "}).listen(8080);"
+        ]
+    }
+}
