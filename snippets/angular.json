@@ -8,5 +8,113 @@
             "this.result.name;"
 		],
 		"description": "Fetch JSON response in Typescript"
+	},
+	"Routing path config": {
+		"scope": "javascript,typescript",
+		"prefix": "routingPath",
+		"body": [
+			"// config in app-routing.module.ts",
+			"{ path: \"page\", component: PageComponent },",
+			"{ path: \"**\", component: NotFoundComponent } // ** means any other route"
+		],
+		"description": "Routing path config in Typescript"
+	},
+	"Nested routing": {
+		"scope": "javascript,typescript",
+		"prefix": "nestedRouting",
+		"body": [
+			"// config in app-routing.module.ts",
+			"{ path: \"page\", component: PageComponent, children: [",
+			"{ path: \"subpage\", component: SubpageComponent }",
+			"] },",
+			"{ path: \"**\", component: NotFoundComponent } // ** means any other route"
+		],
+		"description": "Nested routing in Typescript"
+	},
+	"Routing params": {
+		"scope": "javascript,typescript",
+		"prefix": "routingParams",
+		"body": [
+			"{ path: \"page\", component: PageComponent },",
+			"// id is parameter that is passed in the url, to recieve it we need to use the ActivatedRoute in TypeScript",
+			"{ path: \"page/:id\", component: PageComponent },"
+		],
+		"description": "Routing params in Typescript"
+	},
+	"Activated route": {
+		"scope": "javascript,typescript",
+		"prefix": "activatedRoute",
+		"body": [
+			"// in component",
+			"import { ActivatedRoute } from '@angular/router';",
+			"// inject into component",
+			"constructor(private route: ActivatedRoute) { }",
+			"// on component init",
+			"ngOnInit() {",
+			"\tthis.route.params.subscribe(params => {",
+			"\t\t// get value of passed parameters",
+			"\t\tthis.id = params['id'];",
+			"\t}",
+			"}"
+		],
+		"description": "Activated route in Typescript"
+	},
+	"Angular Forms": {
+		"scope": "javascript,typescript",
+		"prefix": "angularForms",
+		"body": [
+			"// import in new component with form",
+			"import { FormGroup, FormControl, Validators } from '@angular/forms';",
+			"",
+			"// inside the component !!!",
+			"private form: FormGroup; // form group",
+			"",
+			"ngOnInit() {",
+			"\tthis.form = new FormGroup({",
+			"\t\temail: new FormControl('default@value.com', [Validators.required, Validators.email]),",
+			"\t\tpassword: new FormControl('', [Validators.required, Validators.minLength(6)]),",
+			"\t\tacceptChbox: new FormControl(false, [Validators.requiredTrue])",
+			"\t});",
+			"\t// Other validators:",
+			"\t//",
+			"\t// min(min: number)",
+			"\t// max(max: number)",
+			"\t// required(control: AbstractControl)",
+			"\t// requiredTrue(control: AbstractControl)",
+			"\t// email(control: AbstractControl)",
+			"\t// minLength(minLength: number)",
+			"\t// maxLength(maxLength: number)",
+			"\t// pattern(pattern: string | RegExp)",
+			"\t// nullValidator(control: AbstractControl)",
+			"\t// compose(validators: ValidatorFn[])",
+			"\t// composeAsync(validators: AsyncValidatorFn[])",
+			"}",
+			"",
+			"",
+			"//// \/ inside HTML of component !!! \/",
+			"//<form [formGroup]=\"form\" (ngSubmit)=\"onSubmit()\">",
+			"//\t<input type=\"email\" formControlName=\"email\">",
+			"//\t<input type=\"password\" formControlName=\"password\">",
+			"//\t<input type=\"checkbox\" formControlName=\"acceptChbox\">",
+			"//",
+			"//\t<button type=\"submit\" [disabled]=\"!form.valid\">Submit</button>",
+			"//</form>",
+			"",
+			"//// error messages in HTML",
+			"//<div *ngIf=\"!form.get('email').valid && form.get('email').touched\">",
+			"//\tEmail required",
+			"//</div>",
+			"",
+			"//// or",
+			"",
+			"//<div *ngIf=\"!form.get('password').valid && form.get('password').touched\" style=\"color:red\">",
+			"//\t<span *ngFor=\"let error of form.get('password').errors | keyvalue\">",
+			"//\t\t{{error.key}}",
+			"//\t\t<span *ngIf=\"error.key === 'required'\"> is required</span>",
+			"//\t\t<span *ngIf=\"error.key === 'minlength'\"> too short </span>",
+			"//\t</span>",
+			"//</div>"
+		],
+		"description": "Angular Forms in Typescript"
 	}
 }
