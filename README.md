@@ -29,3 +29,8 @@ It may halp you with wrting algorithms
 - primesGenerator - prime numbers generator (The Sieve of Eratosthenes)
 - primeFactorization - prime factorization of number
 - isPrime - check if number is prime
+- fibonacci - get n-th fibonacci number
+- fibonacciArray - get array of fibonacci numbers
+- gcd - greatest common divisor
+- lcm - least common multiple
+- coprime - check if two numbers are coprime

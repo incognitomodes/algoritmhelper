@@ -95,5 +95,91 @@
             "}"
         ],
         "description": "Check if number is prime"
+    },
+    "Fibonacci number": {
+        "scope": "javascript,typescript",
+        "prefix": "fibonacci",
+        "body": [
+            "// Get n Fibonacci number",
+            "function fib(n) {",
+            "\t// if n is 0 or 1, return 1",
+            "\tif (n <= 1) {",
+            "\t\treturn n;",
+            "\t}",
+            "\t// otherwise, return the sum of the previous two numbers",
+            "\treturn fib(n - 1) + fib(n - 2);",
+            "}"
+        ],
+        "description": "Get n Fibbonacci number"
+    },
+    "Fibonacci array": {
+        "scope": "javascript,typescript",
+        "prefix": "fibonacciArray",
+        "body": [
+            "// Get array of n fibonacci numbers",
+            "// n > 2",
+            "function fibonacciArray(n) {",
+            "\tvar fibonacci = [0, 1];",
+            "\tfor (var i = 2; i < n; i++) {",
+            "\t\tfibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];",
+            "\t}",
+            "\treturn fibonacci;",
+            "}"
+        ],
+        "description": "Get n Fibbonacci numbers"
+    },
+    "Greatest common divisor": {
+        "scope": "javascript,typescript",
+        "prefix": "gcd",
+        "body": [
+            "// greatest common divisor algorithm",
+            "function gcd(a, b) {",
+            "\twhile(a !== b) {",
+            "\t\tif(a < b) {",
+            "\t\t\tb -= a;",
+            "\t\t} else {",
+            "\t\t\ta -= b;",
+            "\t\t}",
+            "\t}",
+            "\treturn a;",
+            "}"
+        ],
+        "description": "Greatest common divisor"
+    },
+    "Co-prime numbers": {
+        "scope": "javascript,typescript",
+        "prefix": "coprime",
+        "body": [
+            "// relatively prime numbers or coprime numbers",
+            "function isRelativelyPrime(a, b) {",
+            "\t// numbers are coprime if their greatest common divisor is 1",
+            "\treturn gcd(a, b) === 1;",
+            "}"
+        ],
+        "description": "Check if two numbers are co-prime"
+    },
+    "Least common multiple": {
+        "scope": "javascript,typescript",
+        "prefix": "lcm",
+        "body": [
+            "// least common multiple",
+            "function lcm(a, b) {",
+            "\t// LCM of any number with 0 is 0",
+            "\tif (a == 0 || b == 0) {",
+            "\t\treturn 0;",
+            "\t}",
+            "",
+            "\tvar max = Math.max(a, b);",
+            "\tvar min = Math.min(a, b);",
+            "\tvar lcm = max;",
+            "\t// if lcm is divisible by min, then return lcm",
+            "\twhile (lcm % min != 0) {",
+            "\t\t// increment lcm by max and check again",
+            "\t\tlcm += max;",
+            "\t}",
+            "\treturn lcm;",
+            "}"
+        ],
+        "description": "Least common multiple"
     }
 }
