@@ -4,7 +4,7 @@
 	"publisher": "Incognitomodes",
 	"description": "Help with algorithms",
 	"icon": "images/icon.png",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
